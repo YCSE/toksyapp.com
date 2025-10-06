@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toksy - AI Text Summarizer</title>
+    <meta name="description" content="Toksy - AI-powered text summarizer Safari extension">
+    <script>
+        // Language detection and redirect
+        (function() {
+            // Get browser language
+            const userLang = navigator.language || navigator.userLanguage;
+            const langCode = userLang.toLowerCase();
+
+            // Determine redirect path based on language
+            let redirectPath = '/en/'; // Default to English
+
+            if (langCode.startsWith('ko')) {
+                // Korean
+                redirectPath = '/ko/';
+            } else if (langCode.startsWith('ja')) {
+                // Japanese
+                redirectPath = '/jp/';
+            }
+
+            // Redirect immediately
+            window.location.replace(redirectPath);
+        })();
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .loading {
+            text-align: center;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="spinner"></div>
+        <p>Redirecting to your language...</p>
+    </div>
+
+    <!-- Fallback links if JavaScript is disabled -->
+    <noscript>
+        <style>
+            .loading { display: none; }
+            .fallback { display: block !important; }
+        </style>
+        <div class="fallback" style="display: none; text-align: center;">
+            <h1>Toksy</h1>
+            <p>Please select your language:</p>
+            <p>
+                <a href="/ko/" style="color: white; margin: 0 10px;">한국어</a> |
+                <a href="/en/" style="color: white; margin: 0 10px;">English</a> |
+                <a href="/jp/" style="color: white; margin: 0 10px;">日本語</a>
+            </p>
+        </div>
+    </noscript>
+</body>
+</html>
