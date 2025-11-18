@@ -1,0 +1,14 @@
+/*
+Theme Name: Divi Child
+Theme URI: 
+Description: A Child Theme for the Divi Theme
+Author: 
+Author URI: 
+Template: Divi
+Version: 1.0.0
+*/
+
+/* Import parent theme style */
+@import url("divi.css");
+
+/* Add custom styles below this line */
