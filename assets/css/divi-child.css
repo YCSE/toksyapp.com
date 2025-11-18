@@ -12,3 +12,8 @@ Version: 1.0.0
 @import url("divi.css");
 
 /* Add custom styles below this line */
+
+/* Keep overall background clean/white to match brand tone */
+html, body {
+  background: #ffffff !important;
+}
